@@ -500,9 +500,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fzed51/<package-name>@workspace:.":
+"@fzed51/js-tools@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@fzed51/<package-name>@workspace:."
+  resolution: "@fzed51/js-tools@workspace:."
   dependencies:
     "@biomejs/biome": "npm:2.4.5"
     "@types/jest": "npm:^30.0.0"
