@@ -3,7 +3,10 @@
   "compilerOptions": {
     "module": "CommonJS",
     "moduleResolution": "node",
-    "outDir": "./dist/cjs"
+    "outDir": "./dist/cjs",
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "verbatimModuleSyntax": false
   },
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]
 }
