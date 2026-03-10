@@ -19,6 +19,7 @@
     "package.json"
   ],
   "scripts": {
+    "test": "jest",
     "build": "yarn build:esm && yarn build:cjs && yarn build:types && yarn build:css",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -37,6 +38,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.5",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
     "typescript": "~5.9.3"
   },
   "packageManager": "yarn@4.9.2"
