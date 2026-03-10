@@ -42,7 +42,7 @@ describe("SimpleCache", () => {
 
   it("should handle concurrent requests without duplicating execution", async () => {
     const mockCallback = jest.fn().mockImplementation(async () => {
-      await new Promise(resolve => setTimeout(resolve, 100)); // Simulate async work
+      await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async work
       return [1, 2, 3];
     });
 
@@ -73,7 +73,7 @@ describe("SimpleCache", () => {
     expect(cache.has("kevin")).toBe(true);
 
     // Wait for expiration
-    await new Promise(resolve => setTimeout(resolve, 150));
+    await new Promise((resolve) => setTimeout(resolve, 150));
 
     // Second call after expiration
     await cache.fetch("kevin", mockCallback);
@@ -90,7 +90,7 @@ describe("SimpleCache", () => {
     expect(cache.size).toBe(2);
 
     // Wait for expiration
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     // Trigger cleanup by making a new request
     await cache.fetch("key3", mockCallback);

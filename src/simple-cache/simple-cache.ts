@@ -1,6 +1,5 @@
 import type { CacheEntry, ExecutionEntry } from "./simple-cache.types";
 
-
 /**
  * SimpleCache class provides in-memory caching with TTL (Time To Live) support.
  * It prevents duplicate requests for the same key by managing both result cache
@@ -22,7 +21,7 @@ export class SimpleCache {
   /**
    * Fetches a value from cache or executes the callback if not cached.
    * Manages concurrent requests to prevent duplicate executions.
-   * 
+   *
    * @param key Cache key
    * @param callback Function to execute if value is not in cache
    * @returns Cached value or result from callback execution
@@ -45,7 +44,7 @@ export class SimpleCache {
 
     // Execute callback and manage caching
     const promise = this.executeAndCache(key, callback);
-    
+
     // Add to execution cache
     this.executionCache.set(key, { promise });
 
@@ -58,14 +57,14 @@ export class SimpleCache {
   private async executeAndCache<T>(key: string, callback: () => T | Promise<T>): Promise<T> {
     try {
       const result = await callback();
-      
+
       // Remove from execution cache
       this.executionCache.delete(key);
-      
+
       // Add result to cache
       const expiresAt = Date.now() + this.ttlMs;
       this.resultCache.set(key, { value: result, expiresAt });
-      
+
       return result;
     } catch (error) {
       // Remove from execution cache on error
