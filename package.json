@@ -1,0 +1,43 @@
+{
+  "name": "@fzed51/<package-name>",
+  "description": "<package-description>",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "yarn build:esm && yarn build:cjs && yarn build:types && yarn build:css",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:css": "copyfiles -u 1 \"src/**/*.css\" dist/esm && copyfiles -u 1 \"src/**/*.css\" dist/cjs",
+    "check": "biome check .",
+    "check:w": "biome check . --write",
+    "ver:maj": "npm version major",
+    "ver:min": "npm version minor",
+    "ver:pat": "npm version patch",
+    "git-push": "git push && git push --tags",
+    "_publish": "npm publish --access public",
+    "publish:maj": "yarn ver:maj && yarn git-push && yarn build && yarn _publish",
+    "publish:min": "yarn ver:min && yarn git-push && yarn build && yarn _publish",
+    "publish:pat": "yarn ver:pat && yarn git-push && yarn build && yarn _publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.5",
+    "typescript": "~5.9.3"
+  },
+  "packageManager": "yarn@4.9.2"
+}
