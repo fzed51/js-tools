@@ -6,8 +6,8 @@ import type { CacheEntry, ExecutionEntry } from "./simple-cache.types";
  * and execution cache.
  */
 export class SimpleCache {
-  private resultCache = new Map<string, CacheEntry<any>>();
-  private executionCache = new Map<string, ExecutionEntry<any>>();
+  private resultCache = new Map<string, CacheEntry<unknown>>();
+  private executionCache = new Map<string, ExecutionEntry<unknown>>();
   private readonly ttlMs: number;
 
   /**
@@ -33,13 +33,13 @@ export class SimpleCache {
     // Check if result exists in cache
     const cachedResult = this.resultCache.get(key);
     if (cachedResult && cachedResult.expiresAt > Date.now()) {
-      return cachedResult.value;
+      return cachedResult.value as T;
     }
 
     // Check if callback is currently executing
     const executionEntry = this.executionCache.get(key);
     if (executionEntry) {
-      return executionEntry.promise;
+      return executionEntry.promise as Promise<T>;
     }
 
     // Execute callback and manage caching
