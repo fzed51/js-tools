@@ -1,11 +1,11 @@
 import { DAY, HOUR, MINUTE, SECONDE } from "./constant";
-import { type StringDelay, unit } from "./millisec.types";
+import { type StringDelay, UNIT } from "./millisec.types";
 
 export function millisec(t: StringDelay): number {
   if (typeof t === "number") {
     return t;
   }
-  const regex = new RegExp(`^(-?\\d+(?:\\.\\d+)?)(${unit.join("|")})?$`, "i");
+  const regex = new RegExp(`^(-?\\d+(?:\\.\\d+)?)(${UNIT.join("|")})?$`, "i");
   const result = regex.exec(t);
 
   if (result === null) {
