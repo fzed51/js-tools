@@ -1,19 +1,19 @@
 import { millisec } from "./millisec";
 
 describe("millisec", () => {
-  it("doit accepter les number", () => {
+  it("should accept numbers", () => {
     expect(millisec(1)).toBe(1);
     expect(millisec(1.5)).toBe(1.5);
   });
-  it("doit accepter des number sous forme de chaine", () => {
+  it("should accept numbers as strings", () => {
     expect(millisec("1")).toBe(1);
     expect(millisec("1.5")).toBe(1.5);
   });
-  it("doit accepter des number sous forme de chaine avec une unitée", () => {
+  it("should accept numbers as strings with a unit", () => {
     expect(millisec("1ms")).toBe(1);
     expect(millisec("1.5ms")).toBe(1.5);
   });
-  it("doit accepter d, h, m, s et Ms sous forme majuscule et minuscule", () => {
+  it("should accept d, h, m, s and Ms in uppercase and lowercase", () => {
     expect(millisec("1ms")).toBe(1);
     expect(millisec("1Ms")).toBe(1);
     expect(millisec("1MS")).toBe(1);
@@ -31,7 +31,7 @@ describe("millisec", () => {
     expect(millisec("1D")).toBe(86400000);
   });
 
-  it("doit passer des test divers", () => {
+  it("should pass miscellaneous tests", () => {
     expect(millisec("1.5m")).toBe(90000);
     expect(millisec("-1.5m")).toBe(-90000);
   });

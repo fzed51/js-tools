@@ -14,6 +14,7 @@ Bibliothèque d'utilitaires TypeScript publiée sous `@fzed51/js-tools`.
 ## Nommage et langue
 
 - **Langue du code** : anglais — noms de variables, fonctions, classes, types, constantes
+- **JSDoc** : anglais obligatoire pour les méthodes publiques des classes ou fonctions exportées.
 - **Commentaires** : anglais, français autorisé (les commentaires `//` et `/* */` sont en anglais mais peuvent être en français)
 - **Variables / fonctions** : `camelCase`
 - **Classes / interfaces / types** : `PascalCase`
