@@ -14,7 +14,7 @@ Bibliothèque d'utilitaires TypeScript publiée sous `@fzed51/js-tools`.
 ## Nommage et langue
 
 - **Langue du code** : anglais — noms de variables, fonctions, classes, types, constantes
-- **Commentaires** : français autorisé (les commentaires `//` et `/* */` peuvent être en français)
+- **Commentaires** : anglais, français autorisé (les commentaires `//` et `/* */` sont en anglais mais peuvent être en français)
 - **Variables / fonctions** : `camelCase`
 - **Classes / interfaces / types** : `PascalCase`
 - **Constantes** : `UPPER_SNAKE_CASE`
@@ -48,7 +48,7 @@ src/<module>/
 ## Tests
 
 - Extension : `*.spec.ts`
-- **Descriptions en français** (`describe`, `it`, `test`)
+- **Descriptions en anglais** (`describe`, `it`, `test`)
 - Pattern Arrange → Act → Assert
 - Couvrir les cas limites : chaînes vides, accents, caractères spéciaux, espaces
 - Plusieurs assertions par `it()` quand elles testent la même logique
