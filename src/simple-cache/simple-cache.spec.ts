@@ -110,7 +110,9 @@ describe("SimpleCache", () => {
   it("should handle callback errors correctly", async () => {
     const mockCallback = jest.fn().mockRejectedValue(new Error("Test error"));
 
-    await expect(cache.fetch("kevin", mockCallback)).rejects.toThrow("Test error");
+    await expect(cache.fetch("kevin", mockCallback)).rejects.toThrow(
+      "Test error",
+    );
     expect(cache.size).toBe(0);
     expect(cache.executingCount).toBe(0);
   });

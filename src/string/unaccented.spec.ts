@@ -44,6 +44,8 @@ describe("unaccented", () => {
   });
 
   it("doit traiter une phrase complète", () => {
-    expect(unaccented("Ça, c'est très intéressant !")).toBe("Ca, c'est tres interessant !");
+    expect(unaccented("Ça, c'est très intéressant !")).toBe(
+      "Ca, c'est tres interessant !",
+    );
   });
 });

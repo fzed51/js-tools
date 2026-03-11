@@ -40,6 +40,8 @@ describe("slugify", () => {
   });
 
   it("doit traiter une phrase complète", () => {
-    expect(slugify("  L'été, c'est très agréable ! ")).toBe("l-ete-c-est-tres-agreable");
+    expect(slugify("  L'été, c'est très agréable ! ")).toBe(
+      "l-ete-c-est-tres-agreable",
+    );
   });
 });

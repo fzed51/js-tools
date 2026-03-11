@@ -54,7 +54,10 @@ export class SimpleCache {
   /**
    * Executes the callback and manages caching logic
    */
-  private async executeAndCache<T>(key: string, callback: () => T | Promise<T>): Promise<T> {
+  private async executeAndCache<T>(
+    key: string,
+    callback: () => T | Promise<T>,
+  ): Promise<T> {
     try {
       const result = await callback();
 
